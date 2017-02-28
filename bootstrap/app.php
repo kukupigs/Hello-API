@@ -11,7 +11,7 @@
 |
 */
 
-$app = new Illuminate\Foundation\Application(
+$app = new App\Ship\Engine\App\PortoApp(
     realpath(__DIR__.'/../')
 );
 
