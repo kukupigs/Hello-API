@@ -2,6 +2,7 @@
 
 namespace App\Ship\Parents\Tests\PhpUnit;
 
+use App\Ship\Engine\Kernels\ShipConsoleKernel;
 use App\Ship\Features\Tests\PhpUnit\TestingTrait;
 use App\Ship\Features\Tests\PhpUnit\TestsAuthHelperTrait;
 use App\Ship\Features\Tests\PhpUnit\TestsCustomHelperTrait;
@@ -10,7 +11,6 @@ use App\Ship\Features\Tests\PhpUnit\TestsRequestHelperTrait;
 use App\Ship\Features\Tests\PhpUnit\TestsResponseHelperTrait;
 use App\Ship\Features\Tests\PhpUnit\TestsUploadHelperTrait;
 use Faker\Generator;
-use Illuminate\Contracts\Console\Kernel as LaravelKernel;
 use Laravel\BrowserKitTesting\TestCase as LaravelFivePointThreeTestCaseCompatibilityPackage;
 
 //use Illuminate\Foundation\Testing\TestCase as LaravelTestCase;
@@ -76,7 +76,7 @@ abstract class TestCase extends LaravelFivePointThreeTestCaseCompatibilityPackag
 
         $app = require __DIR__ . '/../../../../../bootstrap/app.php';
 
-        $app->make(LaravelKernel::class)->bootstrap();
+        $app->make(ShipConsoleKernel::class)->bootstrap();
 
         // create instance of faker and make it available in all tests
         $this->faker = $app->make(Generator::class);
